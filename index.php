@@ -6,10 +6,10 @@ error_reporting(E_ALL);
 
 require 'connection.php';
 require 'insert.php';
-require 'profile.php';
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
     $newConnection = openConnection();
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quote_author = $_POST['quote_author'];
 
 
-    var_dump($username);
 
     $insertCommand = "INSERT INTO students (firstName, lastName, username, linkedin, github, email, 
                      preferred_language, avatar, video, quote, quote_author) 
@@ -47,27 +46,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <table border="1">
     <?php
-    $userSelect = 'SELECT firstName,lastName,email,preferred_language  FROM students';
-    foreach ($newConnection->query($userSelect) as $user): ?>
-<tr>
-        <td>
-            <?php echo $user['firstName'] ?>
-        </td>
+    $newConnection = openConnection();
+    $userSelect = 'SELECT firstName,lastName,email,preferred_language,id  FROM students';
+    foreach ($newConnection->query($userSelect) as $user):
+        ?>
+        <tr>
+            <td>
+                <?php echo $user['firstName'] ?>
+            </td>
 
 
-        <td>
-            <?php echo $user['lastName'] ?>
-        </td>
+            <td>
+                <?php echo $user['lastName'] ?>
+            </td>
 
 
-        <td>
-            <?php echo $user['email'] ?>
-        </td>
+            <td>
+                <?php echo $user['email'] ?>
+            </td>
 
-        <td>
-            <img src="<?php echo 'images/'.$user['preferred_language'].'.png' ?>" alt="flag">
-        </td>
-</tr>
+            <td>
+                <img src="<?php echo 'images/' . $user['preferred_language'] . '.png' ?>" alt="flag">
+            </td>
+
+            <td><a href ="http://mysql.local/profile.php?user=<?php echo $user['id'] ?>">Profile</a></td>
+
+        </tr>
     <?php endforeach; ?>
 </table>
 </body>

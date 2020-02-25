@@ -14,6 +14,6 @@ $user= $stmt->fetch();
 <html lang="en">
 <body>
 <form action="index.php" method="post">
-    <p>E-mail: <?php echo $user['email']?></p>
+    <p>first name: <?php echo $user['firstName']?></p>
 </body>
 </html>
