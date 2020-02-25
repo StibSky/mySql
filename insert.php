@@ -1,7 +1,7 @@
 <?php //require_once 'connection.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <body>
 <form action="index.php" method="post">
     <h1>make user</h1>
@@ -29,10 +29,18 @@
         <label for="email">Write email here</label>
         <input id="email" name="email" required>
     </section>
-    <section>
-        <label for="preferred_language">Write preferred_language here</label>
-        <input id="preferred_language" name="preferred_language" required>
-    </section>
+
+
+    <label for="preferred_language" > Choose language here</label>
+        <select name="preferred_language">
+            <option value="be">nl</option>
+            <option value="de">de</option>
+            <option value="en">en</option>
+            <option value="fr">fr</option>
+            <option value="ru">ru</option>
+        </select>
+
+
     <section>
         <label for="avatar">Write avatar here</label>
         <input id="avatar" name="avatar" required>

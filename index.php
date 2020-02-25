@@ -37,3 +37,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'email' => $email, 'preferred_language' => $preferred_language, 'avatar' => $avatar, 'video' => $video,
             'quote' => $quote, 'quote_author' => $quote_author]);
 }
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+
+<table border="1">
+    <?php
+    $userSelect = 'SELECT firstName,lastName,email,preferred_language  FROM students';
+    foreach ($newConnection->query($userSelect) as $user): ?>
+<tr>
+        <td>
+            <?php echo $user['firstName'] ?>
+        </td>
+
+
+        <td>
+            <?php echo $user['lastName'] ?>
+        </td>
+
+
+        <td>
+            <?php echo $user['email'] ?>
+        </td>
+
+        <td>
+            <img src="<?php echo 'images/'.$user['preferred_language'].'.png' ?>" alt="flag">
+        </td>
+</tr>
+    <?php endforeach; ?>
+</table>
+</body>
+</html>
