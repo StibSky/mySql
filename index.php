@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 require 'connection.php';
 require 'insert.php';
+require 'profile.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
