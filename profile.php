@@ -3,8 +3,10 @@ declare(strict_types = 1);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-require 'connection.php';
-$newConnection = openConnection();
+
+
+$newConnection = new Connection;
+$newConnection = $newConnection ->openConnection();
 //the get refers to the ?+name of $_GET in the url
 $userId = $_GET['user'];
 $stmt = $newConnection->prepare('SELECT * FROM students WHERE id=:id');

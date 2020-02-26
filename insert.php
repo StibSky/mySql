@@ -1,9 +1,7 @@
-<?php //require_once 'connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<form action="index.php" method="post">
+<form action="" method="post">
     <h1>make user</h1>
     <section>
         <label for="firstName">Write firstName here</label>
@@ -55,5 +53,37 @@
     </section>
     <input type="submit" name="submitButton">
 </form>
+<table border="1">
+    <?php
+    $newConnection = new Connection();
+    $newConnection = $newConnection->openConnection();
+    $query = new Query();
+    $query->createUserArray();
+    foreach (($query->getUserArray()) as $user):
+        ?>
+        <tr>
+            <td>
+                <?php echo $user['firstName'] ?>
+            </td>
+
+
+            <td>
+                <?php echo $user['lastName'] ?>
+            </td>
+
+
+            <td>
+                <?php echo $user['email'] ?>
+            </td>
+
+            <td>
+                <img src="<?php echo 'images/' . $user['preferred_language'] . '.png' ?>" alt="flag">
+            </td>
+
+            <td><a href="http://mysql.local/profile.php?user=<?php echo $user['id'] ?>">Profile</a></td>
+
+        </tr>
+    <?php endforeach; ?>
+</table>
 </body>
 </html>
