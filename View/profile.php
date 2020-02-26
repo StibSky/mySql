@@ -5,13 +5,6 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 
-$newConnection = new Connection;
-$newConnection = $newConnection ->openConnection();
-//the get refers to the ?+name of $_GET in the url
-$userId = $_GET['user'];
-$stmt = $newConnection->prepare('SELECT * FROM students WHERE id=:id');
-$stmt->execute(['id'=>$userId]);
-$user= $stmt->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">

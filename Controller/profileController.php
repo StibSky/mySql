@@ -2,29 +2,21 @@
 
 
 
-require 'profile.php';
-
 
 class profileController
 {
-    private $user;
 
-    public function getProfile($newConnection)
+
+    public function render()
     {
-//the get refers to the ?+name of $_GET in the url
+        $newConnection = new Connection();
+        $newConnection = $newConnection->openConnection();
+        //the get refers to the ?+name of $_GET in the url
         $userId = $_GET['user'];
         $stmt = $newConnection->prepare('SELECT * FROM students WHERE id=:id');
-        $stmt->execute(['id' => $userId]);
-        $this->user = $stmt->fetch();
+        $stmt->execute([ $userId]);
+        $user = $stmt->fetch();
+        require 'View/profile.php';
     }
-
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
 
 }

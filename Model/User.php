@@ -15,6 +15,7 @@ class User
     private $quote;
     private $quote_author;
 
+
     /**
      * User constructor.
      * @param $firstName

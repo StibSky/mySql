@@ -3,14 +3,9 @@
 declare(strict_types=1);
 
 
-require 'Model/Connection.php';
-require 'Model/User.php';
-require 'Model/Query.php';
-require 'insert.php';
-
 class HomepageController
 {
-    public function fillDatabase()
+    public function render()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newConnection = new Connection();
@@ -46,5 +41,6 @@ class HomepageController
                     'quote' => $user->getQuote(),
                     'quote_author' => $user->getQuoteAuthor()]);
         }
+        require 'View/insert.php';
     }
 }

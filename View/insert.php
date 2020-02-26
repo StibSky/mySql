@@ -80,7 +80,7 @@
                 <img src="<?php echo 'images/' . $user['preferred_language'] . '.png' ?>" alt="flag">
             </td>
 
-            <td><a href="http://mysql.local/profile.php?user=<?php echo $user['id'] ?>">Profile</a></td>
+            <td><a href="?user=<?php echo $user['id'] ?>">Profile</a></td>
 
         </tr>
     <?php endforeach; ?>
