@@ -29,18 +29,14 @@
         <label for="email">Write email here</label>
         <input id="email" name="email" required>
     </section>
-
-
-    <label for="preferred_language" > Choose language here</label>
-        <select name="preferred_language">
-            <option value="be">nl</option>
-            <option value="de">de</option>
-            <option value="en">en</option>
-            <option value="fr">fr</option>
-            <option value="ru">ru</option>
-        </select>
-
-
+    <label for="preferred_language"> Choose language here</label>
+    <select name="preferred_language">
+        <option value="be">nl</option>
+        <option value="de">de</option>
+        <option value="en">en</option>
+        <option value="fr">fr</option>
+        <option value="ru">ru</option>
+    </select>
     <section>
         <label for="avatar">Write avatar here</label>
         <input id="avatar" name="avatar" required>
@@ -57,8 +53,6 @@
         <label for="quote_author">Write quote_author here</label>
         <input id="quote_author" name="quote_author" required>
     </section>
-
-
     <input type="submit" name="submitButton">
 </form>
 </body>
