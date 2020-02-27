@@ -26,4 +26,5 @@ class Connection
 // Why we do this here
         return $pdo;
     }
+
 }

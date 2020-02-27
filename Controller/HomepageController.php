@@ -20,7 +20,7 @@ class HomepageController
                 $_POST['avatar'],
                 $_POST['video'],
                 $_POST['quote'],
-                $_POST['quote_author']
+                $_POST['quote_author'],
             );
             $insertCommand = "INSERT INTO students (firstName, lastName, username, linkedin, github, email, 
                      preferred_language, avatar, video, quote, quote_author) 
@@ -40,6 +40,7 @@ class HomepageController
                     'video' => $user->getVideo(),
                     'quote' => $user->getQuote(),
                     'quote_author' => $user->getQuoteAuthor()]);
+
         }
         require 'View/insert.php';
     }

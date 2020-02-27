@@ -3,8 +3,6 @@ declare(strict_types = 1);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +21,5 @@ error_reporting(E_ALL);
     <p><strong>quote: </strong><?php echo $user['quote']?></p>
     <p><strong>quote author: </strong><?php echo $user['quote_author']?></p>
     <p><strong>created date:</strong> <?php echo $user['created_at']?></p>
-
-
 </body>
 </html>

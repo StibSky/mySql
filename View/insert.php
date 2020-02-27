@@ -51,6 +51,7 @@
         <label for="quote_author">Write quote_author here</label>
         <input id="quote_author" name="quote_author" required>
     </section>
+    <br>
     <input type="submit" name="submitButton">
 </form>
 <table border="1">

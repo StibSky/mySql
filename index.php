@@ -9,11 +9,15 @@ require 'Model/Query.php';
 require 'Model/User.php';
 require 'Controller/HomepageController.php';
 require 'Controller/profileController.php';
+require 'Controller/LoginController.php';
 
-if (!isset($_GET['user'])) {
+if (!empty($_POST['submitButton'])) {
     $controller = new HomepageController();
     $controller->render();
+} elseif (!isset($_GET['user'])) {
+    $controller = new LoginController();
+    $controller->render();
 } else {
-   $profileController = new profileController();
-   $profileController->render();
+    $profileController = new profileController();
+    $profileController->render();
 }
