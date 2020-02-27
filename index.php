@@ -8,6 +8,7 @@ require 'Model/Connection.php';
 require 'Model/Query.php';
 require 'Model/User.php';
 require 'Model/Account.php';
+require 'Model/Authentication.php';
 require 'Controller/HomepageController.php';
 require 'Controller/profileController.php';
 require 'Controller/LoginController.php';
