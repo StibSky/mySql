@@ -4,12 +4,12 @@
 <form action="" method="post">
     <h1>Register</h1>
     <section>
-        <label for="email">choose email here</label>
-        <input id="email" name="email" >
+        <label for="registerEmail">choose email here</label>
+        <input id="registerEmail" name="registerEmail" >
     </section>
     <section>
-        <label for="password">Choose password here</label>
-        <input id="password" name="password" >
+        <label for="registerPassword">Choose password here</label>
+        <input id="registerPassword" name="registerPassword" >
     </section>
     <input type="submit" value="create"   name="create">
 </form>
