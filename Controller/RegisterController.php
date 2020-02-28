@@ -7,7 +7,7 @@ class RegisterController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $authentication = new Authentication();
-            $authentication->checkmail($_POST['registerEmail']);
+            $authentication->checkMail($_POST['registerEmail']);
             $authentication->checkPassword($_POST['registerPassword']);
             if ($authentication->getIsValidEmail() && $authentication->getIsValidPass()) {
                 $newConnection = new Connection();
