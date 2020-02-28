@@ -6,8 +6,8 @@ class Authentication
     private $isValidEmail;
     private $isValidPass;
     private $validPass;
-    private $emailQuery = 'SELECT email FROM logins';
-    private $passQuery = 'SELECT password FROM logins ';
+    private $loginInfoArray;
+    private $isLoginValid = false;
 
     public function checkMail($mail)
     {
@@ -27,12 +27,18 @@ class Authentication
         }
     }
 
-    public function loginCheck($inputEmail, $inputPass){
+    public function loginCheck($inputEmail, $inputPass)
+    {
         $newConnection = new Connection();
         $newConnection = $newConnection->openConnection();
-        $stmt = $newConnection->prepare("SELECT * FROM logins WHERE email= '$inputEmail'");
-        $stmt->execute([ $userId]);
-        $user = $stmt->fetch();
+        $stmt = $newConnection->prepare("SELECT * FROM logins WHERE email= '" . $inputEmail . "'");
+        $stmt->execute();
+        $this->loginInfoArray = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (isset($this->loginInfoArray['password'])) {
+            $this->isLoginValid = password_verify($inputPass, $this->loginInfoArray['password']);
+        }
+
     }
 
 
@@ -59,6 +65,16 @@ class Authentication
     {
         return $this->validPass;
     }
+
+    /**
+     * @return bool
+     */
+    public function getIsLoginValid(): bool
+    {
+        return $this->isLoginValid;
+    }
+
+
 
 
 }
